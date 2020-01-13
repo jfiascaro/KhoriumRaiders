@@ -1,0 +1,46 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">{{ player.name }} {{player.active_title.name.es_MX}} </h1>
+        <h2><small> 
+            {{player.guild.name}}<small> @{{player.realm.name.es_MX}}</small>
+            </small>
+        </h2>
+        <p>
+            {{player.character_class.name.es_MX}} {{player.active_spec.name.es_MX}} {{player.level}}
+        </p>
+
+        <p class="lead">
+            <button type="button" class="btn btn-primary mr-2">
+                Nivel de Objeto equipado <span class="badge badge-light">{{player.equipped_item_level}} </span>
+                <span class="sr-only">unread messages</span>
+            </button>
+            <button type="button" class="btn btn-secondary mr-2">
+                Nivel de Objeto <span class="badge badge-light">{{player.average_item_level}} </span>
+                <span class="sr-only">unread messages</span>
+            </button>
+            <button type="button" class="btn btn-success mr-2">
+                Nivel del Corazón <span class="badge badge-light">{{equipment[1].azerite_details.level.value}} </span>
+                <span class="sr-only">unread messages</span>
+            </button>
+        </p>
+    </div>
+</div>
+
+<div class="card-columns">
+    <div *ngFor="let item of equipment" class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{item.name.es_MX}}
+                <small>
+                    {{item.level.value}} 
+                    <a *ngIf="item.slot.type == 'NECK'"> ({{item.azerite_details.level.value}}) </a>
+                </small>
+            </h5>
+            <p class="card-text">
+                <span class="badge badge-primary">{{item.quality.type.es_MX}}</span>
+            </p>
+            <p class="card-text"><small class="text-muted">{{item.slot.name.es_MX}}
+                <span *ngIf="item.quality.type != 'ARTIFACT'" class="badge badge-primary">{{item.quality.type}}</span>
+                <span *ngIf="item.quality.type == 'ARTIFACT'" class="badge badge-success">{{item.quality.type}}</span>
+            </small></p>
+        </div>
+    </div>

@@ -1,0 +1,18 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Rango</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Clase</th>
+            <th scope="col">Nivel</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let player of roster let i=index">
+            <td> {{player.rank}} </td>
+            <td> {{player.character.name}} </td>
+            <td> {{player.character.playable_class.id}} </td>
+            <td> {{player.character.level}} </td>
+        </tr>
+    </tbody>
+</table>
