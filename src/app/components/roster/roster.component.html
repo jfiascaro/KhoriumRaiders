@@ -5,6 +5,9 @@
             <th scope="col">Nombre</th>
             <th scope="col">Clase</th>
             <th scope="col">Nivel</th>
+            <th scope="col">Nivel de Objeto</th>
+            <th scope="col">Corazón de Azeroth</th>
+            <th scope="col">Ver</th>
         </tr>
     </thead>
     <tbody>
@@ -13,6 +16,14 @@
             <td> {{player.character.name}} </td>
             <td> {{player.character.playable_class.id}} </td>
             <td> {{player.character.level}} </td>
+            <td> {{player.character.id}} </td>
+            <td> {{player.character.id}} </td>
+            <td>
+                <button (click)="getPlayerInfo(player.character.name )" type="button" class="btn btn-outline-primary">
+                        Ver Player
+                </button>
+                <!-- <a [routerLink]="[ '/player', player.character.name | lowercase ] " class="btn btn-outline-primary ">Ver player</a> -->
+            </td>
         </tr>
     </tbody>
 </table>
